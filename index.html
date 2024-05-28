@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimPlify</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+        }
+
+        header {
+            background-color: #251a14;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .hero {
+            background-image: url("back2.jpg");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 5rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: #423b3b;
+        }
+
+        .products {
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .product-list {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .product {
+            border: 1px solid #d1cdcd;
+            padding: 1rem;
+            width: 200px;
+            cursor: pointer;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .product p {
+            font-size: 0.8rem;
+        }
+
+        footer {
+            background-color: #1a1313;
+            color: white;
+            text-align: center;
+            padding: 0.2rem;
+        }
+
+        .product h2 {
+            font-size: 2rem;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: #4b3e36;
+            color: white;
+            margin-right: 10px;
+        }
+
+        .about {
+            text-align: center;
+        }
+
+        .contact {
+            text-align: center;
+        }
+
+        .pictures {
+            margin-left: 50px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #productImage {
+            max-width: 100%;
+            max-height: 300px;
+            margin-right: 20px;
+        }
+
+        #productText {
+            max-width: 500px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">SimPlify</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>"UNLEASH YOUR INNER ARTIST"</h1>
+    </section>
+
+    <section class="products" id="products">
+        <h2>&quot;O&nbsp;&nbsp;&nbsp;&nbsp;U&nbsp;&nbsp;&nbsp;&nbsp;R&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;&nbsp;I&nbsp;&nbsp;&nbsp;&nbsp;N&nbsp;&nbsp;&nbsp;&nbsp;E&nbsp;&nbsp;&nbsp;&nbsp;U&nbsp;&nbsp;&nbsp;&nbsp;P&quot;</h2>
+
+        <div class="product-list">
+            <div class="product" data-product="foundation">
+                <img src="fof.jpg" alt="Product 4">
+                <h2>1</h2>
+                <h3>SIM-Foundation</h3>
+                <p>Smooth and flawless complexion with Simplify's Foundation. Lightweight and buildable coverage for a natural look.</p>
+            </div>
+            <div class="product" data-product="eyeliner">
+                <img src="blush.jpg" alt="Product 5">
+                <h2>2</h2>
+                <h3>SIM-Eyeliner</h3>
+                <p>Define your eyes with Simplify's Eyeliner. Waterproof formula for long-lasting wear, perfect for creating precise lines or smoky looks.</p>
+            </div>
+            <div class="product" data-product="brow">
+                <img src="brows.jpg" alt="Product 1">
+                <h2>3</h2>
+                <h3>SIMP-BROW</h3>
+                <p>Effortless brow definition with Simplify's Brow Pencil. Achieve natural-looking brows with our easy-to-use formula. Simply fill sparse areas and shape for perfect arches.</p>
+            </div>
+            <div class="product" data-product="powder">
+                <img src="powder.jpg" alt="Product 2">
+                <h2>4</h2>
+                <h3>SIM-POWDER</h3>
+                <p>Finish your look flawlessly with Simplify's Setting Powder. Our lightweight formula locks makeup in place for all-day wear, giving you a smooth, matte finish.</p>
+            </div>
+            <div class="product" data-product="lip">
+                <img src="lip.jpg" alt="Product 3">
+                <h2>5</h2>
+                <h3>SIMP-LIP</h3>
+                <p>Get kissable lips with Simplify's Lip Gloss. Our smooth formula enhances your natural beauty, adding a touch of shine to every smile.</p>
+            </div>
+        </div>
+    </section>
+    <section class="pictures">
+        <div class="picture">
+            <img src="j.jpg" alt="Picture 1">
+        </div>
+    </section>
+    <br>
+    <br>
+    <section class="about" id="about">
+        <h2>&quot;A&nbsp;&nbsp;&nbsp;&nbsp;B&nbsp;&nbsp;&nbsp;&nbsp;O&nbsp;&nbsp;&nbsp;&nbsp;U&nbsp;&nbsp;&nbsp;&nbsp;T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;U&nbsp;&nbsp;&nbsp;&nbsp;S&quot;</h2>
+
+        <p style="text-align: center;">"Simplify is all about creating top-notch makeup essentials to effortlessly enhance your natural beauty. <br>We're committed to redefining beauty norms by offering products that work for everyone.<br>Our goal is to make your beauty routine easier with versatile, high-quality cosmetics.<br> We believe makeup should inspire confidence and self-expression, helping you embrace your true self.<br>At Simplify, we're not just a brand; we're your go-to for discovering your inner beauty."</p>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        gbgalon@astean.biscast.edu.ph / sbdeleon@astean.biscast.edu.ph
+    </section>
+
+    <footer>
+        <p>&copy; 2024 SimPlify All rights reserved.</p>
+    </footer>
+    <br>
+
+    <!-- The Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="productImage" src="" alt="Product Image">
+            <div id="productText"></div>
+        </div>
+    </div>
+
+    <script>
+        // Product information
+        const productDetails = {
+            foundation: {
+                text: `To use SIM-Foundation:
+                - Start with clean, moisturized skin for a smooth application.
+                - Apply a small amount of foundation to the back of your hand.
+                - Use a brush, sponge, or fingertips to dot the foundation onto your forehead, cheeks, nose, and chin.
+                - Blend outward in circular motions for even coverage.
+                - Build up coverage in thin layers if needed.
+                - Set with a light dusting of powder for a matte finish.`,
+                img: "fof.jpg"
+            },
+            eyeliner: {
+                text: `To use SIM-Eyeliner:
+                - Start from the inner corner of your eye and draw a line along your lash line.
+                - For a precise line, use short, connected strokes.
+                - For a smoky look, smudge the line gently with a brush or cotton swab.
+                - Wing it out for a dramatic effect.
+                - Tightline your upper waterline to make your lashes appear fuller.
+                - Set with a matching eyeshadow to prevent smudging.`,
+                img: "blush.jpg"
+            },
+            brow: {
+                text: `To use SIMP-BROW:
+                - Start by brushing your brows upwards with a spoolie brush.
+                - Use the pencil to fill in sparse areas with short, light strokes mimicking natural hair.
+                - Define the shape by outlining the bottom and top of your brows.
+                - Blend with the spoolie for a natural finish.
+                - Set with a brow gel to keep hairs in place.
+                - Highlight under the brow bone to lift and define.`,
+                img: "brows.jpg"
+            },
+            powder: {
+                text: `To use SIM-POWDER:
+                - Apply after foundation and concealer to set your makeup.
+                - Use a large, fluffy brush for a light, even application.
+                - Focus on your T-zone to control shine.
+                - Lightly press the powder onto your skin rather than sweeping to avoid disturbing your foundation.
+                - Use a smaller brush for targeted application around the nose and under the eyes.
+                - Reapply throughout the day to maintain a matte finish.`,
+                img: "powder.jpg"
+            },
+            lip: {
+                text: `To use SIMP-LIP:
+                - Start with exfoliated and moisturized lips.
+                - Apply a lip liner to define the shape and prevent feathering.
+                - Apply the lip gloss from the center of your lips outward.
+                - Press your lips together to evenly distribute the product.
+                - Layer for a more intense shine.
+                - Use a tissue to blot for a softer look or to remove excess product.`,
+                img: "lip.jpg"
+            }
+        };
+
+        // Get the modal
+        var modal = document.getElementById("productModal");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // Function to display product details in the modal
+        function showProductDetails(product) {
+            document.getElementById("productText").innerText = productDetails[product].text;
+            document.getElementById("productImage").src = productDetails[product].img;
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on a product, open the modal
+        document.querySelectorAll(".product").forEach(item => {
+            item.addEventListener("click", event => {
+                let product = item.getAttribute("data-product");
+                showProductDetails(product);
+            });
+        });
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
